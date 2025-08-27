@@ -8,7 +8,10 @@ import java.util.List;
 public class ArrayListLearn {
     public static void main(String[] args) {
         // Create ArrayList
-        ArrayList<String> list=new ArrayList<>();
+        ArrayList<String> list=new ArrayList<>(); // default capacity will be 10
+
+        // we can also declare with initial capacity
+        ArrayList<Integer> listWithInitialCapacity=new ArrayList<>(20);
 
         // 1. add(E e) → add element at the end
         list.add("Apple");
@@ -29,6 +32,14 @@ public class ArrayListLearn {
 
         // 6. remove(int index) → remove by index
         list.remove(1); // [Apple, Pineapple]
+
+        // some interesting fact about remove (by index & value can be sometime confusing)
+        List<Integer> numbers = new ArrayList<>(List.of(1, 2, 3, 4));
+        numbers.remove(3); // now question is will it remove value 3 or index 3 element?
+        System.out.println(numbers); // [1, 2, 3] -> so it will remove index 3 element i.e. 4
+
+        numbers.remove(Integer.valueOf(2));
+        System.out.println(numbers); // [1, 3] -> this time it will remove by value
 
         // 7. size() → number of elements
         int size = list.size(); // 2
