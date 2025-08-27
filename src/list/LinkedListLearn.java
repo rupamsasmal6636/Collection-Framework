@@ -28,6 +28,9 @@ public class LinkedListLearn {
         // 6. remove(int index) → remove by index
         list.remove(0); // [Orange]
 
+        // removeIf() [need to pass Predicate]
+        list.removeIf(s-> s.startsWith("m"));
+
         // 7. size()
         int size= list.size(); // 1
 
