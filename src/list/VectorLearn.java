@@ -1,5 +1,6 @@
 package list;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Vector;
 
@@ -35,7 +36,7 @@ public class VectorLearn {
         vector.remove(0); // [Orange]
 
         // 7. size() → number of elements
-        int size = vector.size();
+        int size = vector.size(); // 1
 
         // 8. contains(Object o) → check existence
         boolean hasOrange = vector.contains("Orange"); // true
@@ -74,27 +75,57 @@ public class VectorLearn {
         // -------------------------
 
         // 16. firstElement() → get first element
-        String first = vector.firstElement();
+        String first = vector.firstElement(); // Cat
 
         // 17. lastElement() → get last element
-        String last = vector.lastElement();
+        String last = vector.lastElement(); // Elephant
 
         // 18. capacity() → current capacity of vector
-        int capacity = vector.capacity();
+        int capacity = vector.capacity(); // 10 -> [by default 10]
 
         // 19. ensureCapacity(int minCapacity) → increase capacity if needed
-        vector.ensureCapacity(20);
+        vector.ensureCapacity(20); // now capacity -> 20
 
         // 20. trimToSize() → trim unused capacity
-        vector.trimToSize();
+        vector.trimToSize(); // now capacity -> 4
 
         // 21. addElement(E obj) → legacy add method (similar to add)
-        vector.addElement("Tiger");
+        vector.addElement("Tiger"); // [Cat, Dog, Dog, Elephant, Tiger]
 
         // 22. removeElement(Object obj) → legacy remove by value
-        vector.removeElement("Dog");
+        vector.removeElement("Dog"); // [Cat, Dog, Elephant, Tiger]
 
         // 23. removeAllElements() → legacy clear()
         vector.removeAllElements();
+
+        // capacity increment during constructor call
+        Vector<Integer> vectorList = new Vector<>(10, 3); // here initial capacity is 10, whenever it reaches the max capacity it will increase the capacity by 3
+
+        // Arraylist vs Vector
+        // Vector is thread safe, one operation can be performed one at a time, so it's slower that arraylist
+        // when we works only with single thread then better to use arraylist
+
+        ArrayList<Integer> arrayList=new ArrayList<>();
+        Thread t1=new Thread(()->{
+            for (int i = 0; i < 1000; i++) {
+                arrayList.add(i);
+            }
+        });
+        Thread t2=new Thread(()->{
+            for (int i = 0; i < 1000; i++) {
+                arrayList.add(i);
+            }
+        });
+        t1.start();
+        t2.start();
+
+        try {
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println(arrayList.size()); // it won't be 2000 -> that's the issue with arraylist, it's not thread safe
     }
 }
