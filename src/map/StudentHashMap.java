@@ -45,7 +45,7 @@ class Student{
 }
 public class StudentHashMap {
     public static void main(String[] args) {
-        Map<Student,Integer> studentMarks = new HashMap<>();
+        Map<Student,Integer> studentMarks = new HashMap<>(12,0.8f); // (initialCapacity,loadFactor)
 
         Student s1 = new Student(101, "Alice");
         Student s2 = new Student(102, "Bob");
