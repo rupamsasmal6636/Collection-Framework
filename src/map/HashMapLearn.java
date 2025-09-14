@@ -65,5 +65,22 @@ public class HashMapLearn {
             System.out.println(entry.getKey()+" : "+ entry.getValue());
         }
 
+        // 11. getOrDefault() -> return value of the key if present otherwise return the default value
+        String name1= map.getOrDefault(1,"Unknown"); // Rupam
+        String name2= map.getOrDefault(6,"Unknown"); // Unknown
+
+        // 12. putIfAbsent()
+        map.putIfAbsent(1,"Rupam Sasmal"); // present, so no put
+        map.putIfAbsent(6,"Hari"); // missing, so put
+
+        System.out.println(map); // {1=Rupam, 2=Subham, 4=Yash, 6=Hari}
+
+        // Note: if any key is already present and if we put the value over the key it overwrite the value
+        map.put(1,"Rupam Sasmal");
+        System.out.println(map); // {1=Rupam Sasmal, 2=Subham, 4=Yash, 6=Hari}
+
+        // 13. clear()
+        map.clear(); // {}
+
     }
 }
