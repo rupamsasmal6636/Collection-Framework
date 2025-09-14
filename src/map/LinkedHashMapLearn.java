@@ -1,6 +1,7 @@
 package map;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class LinkedHashMapLearn {
     public static void main(String[] args) {
@@ -8,7 +9,7 @@ public class LinkedHashMapLearn {
         // About LinkedHashMap
         // -------------------------
         // 1. Extends HashMap → stores key-value pairs.
-        // 2. Maintains insertion order by default.
+        // 2. Maintains insertion order by using a doubly linked list on top of the normal HashMap structure.
         // 3. Can also maintain access order (least-recently-used) if enabled in constructor.
         // 4. Allows one null key and multiple null values.
         // 5. Not synchronized (not thread-safe).
@@ -29,22 +30,22 @@ public class LinkedHashMapLearn {
         map.remove(3);
 
         // 4. containsKey(Object key)
-        boolean hasKey = map.containsKey(1);
+        boolean hasKey = map.containsKey(1); // true
 
         // 5. containsValue(Object value)
-        boolean hasValue = map.containsValue("Banana");
+        boolean hasValue = map.containsValue("Banana"); // true
 
         // 6. size()
-        int size = map.size();
+        int size = map.size(); // 2
 
         // 7. isEmpty()
-        boolean empty = map.isEmpty();
+        boolean empty = map.isEmpty(); // false
 
         // 8. keySet()
-        System.out.println("Keys: " + map.keySet());
+        System.out.println("Keys: " + map.keySet()); // Keys: [1, 2]
 
         // 9. values()
-        System.out.println("Values: " + map.values());
+        System.out.println("Values: " + map.values()); // Values: [Apple, Banana]
 
         // 10. entrySet() → iterate all key-value pairs
         for (Map.Entry<Integer, String> entry : map.entrySet()) {
@@ -58,13 +59,16 @@ public class LinkedHashMapLearn {
         map.replace(2, "Pineapple");
 
         // 13. getOrDefault(K, defaultVal)
-        String val = map.getOrDefault(10, "DefaultFruit");
+        String val = map.getOrDefault(10, "DefaultFruit"); // DefaultFruit
 
         // 14. forEach(BiConsumer) (Java 8+)
         map.forEach((k, v) -> System.out.println(k + " => " + v));
+        /* 1 => Apple
+           2 => Pineapple
+           3 => Orange */
 
         // -------------------------
-        // Access-order LinkedHashMap (like LRU cache)
+        // Access-order LinkedHashMap (like LRU cache) -> leastAccessedKey at first, and latest accessed key at last
         // -------------------------
         LinkedHashMap<Integer, String> accessOrderMap = new LinkedHashMap<>(16, 0.75f, true);
         accessOrderMap.put(1, "A");
@@ -74,7 +78,7 @@ public class LinkedHashMapLearn {
         // Access key 1 → moves it to end
         accessOrderMap.get(1);
 
-        System.out.println("Access-order map: " + accessOrderMap);
+        System.out.println("Access-order map: " + accessOrderMap); // Access-order map: {2=B, 3=C, 1=A}
 
     }
 }
