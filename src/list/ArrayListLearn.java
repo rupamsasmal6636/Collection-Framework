@@ -115,6 +115,9 @@ public class ArrayListLearn {
         List<Integer> list6=List.of(1,2,3,4);
 //        list6.set(1,4); // java.lang.UnsupportedOperationException -> we can't even modify in this case
 
+        // Time complexity:
+        // get (access by index) : O(1)
+        // Add, Remove, Iteration : O(N)
 
     }
 }
