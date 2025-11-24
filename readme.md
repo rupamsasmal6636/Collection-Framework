@@ -9,4 +9,9 @@
 
 * Map:  [separate from collection interface]
   1. map -> HashMapLearn.java
-  2. Hashmap_Internal_Working.md
+  2. map -> Hashmap_Internal_Working.md
+  3. map -> StudentHashMap.java
+  4. map -> LinkedHashMapLearn.java
+  5. map -> LRUCacheDemo.java
+  6. map -> GC.java
+  7. map -> WeakHashMapDemo
