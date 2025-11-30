@@ -15,3 +15,4 @@
   5. map -> LRUCacheDemo.java
   6. map -> GC.java
   7. map -> WeakHashMapDemo
+  8. map -> IdentityHashMapDemo
