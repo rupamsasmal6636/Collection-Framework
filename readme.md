@@ -14,6 +14,7 @@
   4. map -> LinkedHashMapLearn.java
   5. map -> LRUCacheDemo.java
   6. map -> GC.java
-  7. map -> WeakHashMapDemo
-  8. map -> IdentityHashMapDemo
-  9. map -> TreeMapNavigableMapDemo
+  7. map -> WeakHashMapDemo.java
+  8. map -> IdentityHashMapDemo.java
+  9. map -> TreeMapNavigableMapDemo.java
+  10. map -> HashTableDemo.java
